@@ -1,0 +1,36 @@
+{
+  "name": "grunt-unreadable",
+  "description": "Grunt plugin for Unreadable: an intelligent/CSS-aware HTML Minifier and Optimizer",
+  "version": "0.0.14",
+  "private": true,
+  "homepage": "https://github.com/JamieMason/grunt-unreadable",
+  "author": {
+    "name": "Jamie Mason",
+    "email": "siunmaru@gmail.com",
+    "url": "http://twitter.com/gotnosugarbaby"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:JamieMason/grunt-unreadable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JamieMason/grunt-unreadable/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/JamieMason/grunt-unreadable/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "grunt.js",
+  "bin": "bin/grunt-unreadable",
+  "engines": {
+    "node": ">= 0.8.x"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.17"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
