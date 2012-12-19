@@ -23,19 +23,18 @@ module.exports = function(grunt) {
     }
 
     files.forEach(function(file) {
-      var srcFile = path.resolve('./' + file);
+      var srcFile = path.resolve(file);
       var destFile = destDir + file;
       var fileUrl = baseUrl + file;
 
       require('child_process').exec('unreadable --url ' + fileUrl + ' --output ' + destFile, function(error, stdout, stderr) {
-        if(!error) {
-          count++;
-          grunt.log.writeln(stdout);
-          if(count === files.length) {
-            done();
-          }
-        } else {
-
+        console.log(destFile);
+        count++;
+        if(error) {
+          console.log(stdout);
+        }
+        if(count === files.length) {
+          done();
         }
       });
     });
