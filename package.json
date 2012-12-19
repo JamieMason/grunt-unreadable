@@ -1,7 +1,7 @@
 {
   "name": "grunt-unreadable",
   "description": "Grunt plugin for Unreadable: an intelligent/CSS-aware HTML Minifier and Optimizer",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "private": true,
   "homepage": "https://github.com/JamieMason/grunt-unreadable",
   "author": {
@@ -28,7 +28,8 @@
     "node": ">= 0.8.x"
   },
   "devDependencies": {
-    "grunt": "~0.3.17"
+    "grunt": "~0.3.17",
+    "unreadable": ">=0.0.15"
   },
   "keywords": [
     "gruntplugin"
