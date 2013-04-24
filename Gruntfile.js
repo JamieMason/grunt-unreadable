@@ -16,42 +16,35 @@ module.exports = function(grunt) {
       all: [
         'Gruntfile.js',
         'tasks/*.js',
-        '<%= nodeunit.tests %>',
+        '<%= nodeunit.tests %>'
       ],
       options: {
-        jshintrc: '.jshintrc',
-      },
+        jshintrc: '.jshintrc'
+      }
     },
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      tests: ['tmp'],
+      tests: ['tmp']
     },
 
     // Configuration to be run (and then tested).
     unreadable: {
-      default_options: {
-        options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123'],
-        },
-      },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!',
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123'],
-        },
-      },
+      test_fixtures: {
+        files: [{
+          expand: true, // enable dynamic expansion.
+          cwd: 'test/fixtures', // src matches are relative to this path.
+          src: ['**/*.html'], // actual pattern(s) to match.
+          dest: 'tmp/', // destination path prefix.
+          ext: '.min.html' // dest filepaths will have this extension.
+        }]
+      }
     },
 
     // Unit tests.
     nodeunit: {
-      tests: ['test/*_test.js'],
-    },
+      tests: ['test/*_test.js']
+    }
 
   });
 
