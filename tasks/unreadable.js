@@ -25,7 +25,7 @@ module.exports = function(grunt) {
     var done = task.async();
 
     var options = task.options({
-
+      urlBase: 'http://localhost:8765'
     });
 
     var workingSet = {
@@ -52,7 +52,7 @@ module.exports = function(grunt) {
      * @return {String}
      */
     function getCliCommand(file) {
-      return 'unreadable --url ' + file.src + ' --output ' + file.dest;
+      return 'unreadable --url ' + file.srcUrl + ' --output ' + file.dest;
     }
 
     /**
@@ -69,6 +69,14 @@ module.exports = function(grunt) {
      * @param  {String} filePath
      * @return {String}
      */
+    function toUrl(filePath) {
+      return options.urlBase + filePath;
+    }
+
+    /**
+     * @param  {String} filePath
+     * @return {String}
+     */
     function toAbsolutePath(filePath) {
       return path.resolve(filePath) + (grunt.file.isDir(filePath) ? '/' : '');
     }
@@ -79,7 +87,8 @@ module.exports = function(grunt) {
      */
     function prepareFile(file) {
       return {
-        src: toAbsolutePath(file.src[0]),
+        src: file.src[0],
+        srcUrl: toUrl(file.src[0]),
         dest: toAbsolutePath(file.dest)
       };
     }

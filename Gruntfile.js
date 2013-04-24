@@ -31,6 +31,9 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     unreadable: {
       test_fixtures: {
+        options: {
+          urlBase: 'http://localhost:8765/'
+        },
         files: [{
           expand: true, // enable dynamic expansion.
           cwd: 'test/fixtures', // src matches are relative to this path.
