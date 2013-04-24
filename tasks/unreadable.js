@@ -23,9 +23,10 @@ module.exports = function(grunt) {
     var filesProcessed = 0;
     var task = this;
     var done = task.async();
+    var defaultUrl = 'http://localhost:8765/';
 
     var options = task.options({
-      urlBase: 'http://localhost:8765'
+      baseUrl: defaultUrl
     });
 
     var workingSet = {
@@ -70,7 +71,7 @@ module.exports = function(grunt) {
      * @return {String}
      */
     function toUrl(filePath) {
-      return options.urlBase + filePath;
+      return options.baseUrl + filePath;
     }
 
     /**
@@ -106,6 +107,10 @@ module.exports = function(grunt) {
         }
         onComplete();
       });
+    }
+
+    if (options.baseUrl === defaultUrl) {
+      grunt.log.writeln('no baseUrl option supplied, so using default of "' + defaultUrl + '"');
     }
 
     isInstalled('phantomjs', function(phantomjsIsInstalled) {

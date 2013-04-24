@@ -32,7 +32,7 @@ module.exports = function(grunt) {
     unreadable: {
       test_fixtures: {
         options: {
-          urlBase: 'http://localhost:8765/'
+          baseUrl: 'http://localhost:8765/'
         },
         files: [{
           expand: true, // enable dynamic expansion.
